@@ -15,7 +15,12 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +31,43 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        // Listener for NumbersActivity
+        TextView numbers = findViewById(R.id.numbers);
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),NumbersActivity.class);
+                startActivity(intent);
+            }
+        });
+        // Listener for FamilyActivity
+        TextView family = findViewById(R.id.family);
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),FamilyActivity.class);
+                startActivity(intent);
+            }
+        });
+        // Listener for ColorsActivity
+        TextView colors = findViewById(R.id.colors);
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),ColorsActivity.class);
+                startActivity(intent);
+            }
+        });
+        // Listener for PhrasesActivity
+        TextView phrases = findViewById(R.id.phrases);
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),PhrasesActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
