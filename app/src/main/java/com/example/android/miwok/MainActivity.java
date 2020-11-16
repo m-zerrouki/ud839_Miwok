@@ -17,6 +17,7 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,33 +38,37 @@ public class MainActivity extends AppCompatActivity {
         numbers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("onClick :", "NumbersActivity");
                 Intent intent = new Intent(v.getContext(),NumbersActivity.class);
                 startActivity(intent);
             }
         });
         // Listener for FamilyActivity
         TextView family = findViewById(R.id.family);
-        numbers.setOnClickListener(new View.OnClickListener() {
+        family.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("onClick :", "FamilyActivity");
                 Intent intent = new Intent(v.getContext(),FamilyActivity.class);
                 startActivity(intent);
             }
         });
         // Listener for ColorsActivity
         TextView colors = findViewById(R.id.colors);
-        numbers.setOnClickListener(new View.OnClickListener() {
+        colors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("onClick :", "ColorsActivity");
                 Intent intent = new Intent(v.getContext(),ColorsActivity.class);
                 startActivity(intent);
             }
         });
         // Listener for PhrasesActivity
         TextView phrases = findViewById(R.id.phrases);
-        numbers.setOnClickListener(new View.OnClickListener() {
+        phrases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("onClick :", "PhrasesActivity");
                 Intent intent = new Intent(v.getContext(),PhrasesActivity.class);
                 startActivity(intent);
             }
