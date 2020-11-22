@@ -9,10 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
@@ -35,9 +31,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentWord = getItem(position);
 
         ImageView imageView = listItemView.findViewById(R.id.image_view);
-        int imageResource = currentWord.getImageSource();
-        if(imageResource != 0) {
-            imageView.setImageResource(imageResource);
+
+        if(currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getImageSourceId());
         }else{
             imageView.setVisibility(View.GONE);
         }
