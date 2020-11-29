@@ -30,14 +30,24 @@ public class Word {
         return mDefaultTranslation;
     }
 
-    public int getImageSourceId() {
+    public int getImageResourceId() {
         return mImageSourceId;
     }
 
     public boolean hasImage(){return mImageSourceId != NO_IMAGE_PROVIDED;}
 
-    public int getAudioSourceId() {
+    public int getAudioResourceId() {
         return mAudioSourceId;
     }
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "NO_IMAGE_PROVIDED=" + NO_IMAGE_PROVIDED +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mImageSourceId=" + mImageSourceId +
+                ", mAudioSourceId=" + mAudioSourceId +
+                '}';
+    }
 }
