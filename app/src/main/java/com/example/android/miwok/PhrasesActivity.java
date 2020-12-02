@@ -11,6 +11,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
+    private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener(){
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +53,25 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MediaPlayer mp = MediaPlayer.create(PhrasesActivity.this, phrases.get(position).getAudioResourceId());
-                mp.start();
+                releaseMediaPlayer();
+                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrases.get(position).getAudioResourceId());
+                mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }
